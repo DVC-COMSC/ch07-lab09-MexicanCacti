@@ -10,10 +10,19 @@ for i in range(len(name)):
 shortest = names[i]
 longest = names[i]
 for i in range(len(names)):
-    if len(names[i]) <= len(shortest) and names[i] < shortest:
+    if len(names[i]) < len(shortest):
         shortest = names[i]
         continue
-    elif len(names[i]) >= len(longest) and names[i] < longest:
+    elif len(names[i]) == len(shortest):
+        if names[i] < shortest:
+            shortest = names[i]
+            continue
+    if len(names[i]) > len(longest):
         longest = names[i]
+        continue
+    elif len(names[i]) == len(longest):
+        if names[i] < longest:
+            longest = names[i]
+            continue
 
 print(shortest,longest)
